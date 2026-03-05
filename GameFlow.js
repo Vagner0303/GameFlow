@@ -23,7 +23,7 @@ for (let i = 0; i < palavraAleatoria.length; i++) {
     }
     // o join serve para mudar o separador entre os elementos, nesse caso ele é um espaço vazio
     let palavraOculta = tamanhoPalavra.join(" ");
-    console.log(palavraOculta)
+    return palavraOculta;
 }
 
 //função de perder vida
