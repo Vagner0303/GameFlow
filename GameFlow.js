@@ -55,16 +55,20 @@ function revelarLetra(letra){
 }
 
 // texto inicial
-console.log("Olá, você está em um Jogo da Forca, digita a palavra certa ou morra! 🪢")
+console.log("🎮 Olá, você está em um Jogo da Forca, digita a palavra certa ou morra!!!")
 console.log(" ")
-console.log("❌ Você tem 6 tentativas, a cada letra errada você perde uma vida! ☠️")
+console.log("❌ Você tem 6 tentativas, a cada letra errada você perde uma vida!!! ☠️")
 console.log("____________________________ / / ______________________________________")
 console.log(" ")
 
 console.log("Jogo iniciado, descubra a palavra ou morra!!! ☠️")
+console.log("")
 console.log(mostrarPalavraOculta())
+console.log("")
 
-console.log("======================================================")
+
+console.log("____________________________ / / ______________________________________")
+console.log("")
 
 function pedirLetra() {
 
@@ -93,7 +97,7 @@ function pedirLetra() {
     return letraFormatada;
 }
 
-// jogo
+
 let letra = pedirLetra();
 
 if (!palavraAleatoria.includes(letra)) {
