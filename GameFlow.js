@@ -2,7 +2,7 @@
 
 const readline = require('readline-sync');
 
-// palavras que vamos usar no jogo da forca, podem musdar se quiser
+// palavras que vamos usar no jogo da forca
 const palavras = ["javascript", "terminal", "computador", "programacao", "github"];
 
 let LetrasDescobertas = [];
@@ -10,51 +10,92 @@ let tentativas = 6
 let LetrasUsada = [];
 let LetrasPodeUsar = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
 
-//aqui vai escolher uma das palavras aleatoriamente
+// escolher palavra aleatória
 const palavraAleatoria = palavras[Math.floor(Math.random() * palavras.length)];
 
-// para guardar o tamanho da palavra
+// guardar tamanho da palavra
 let tamanhoPalavra = [];
 
-// função para mostrar a palavra escolhida ocultada
+// mostrar palavra oculta
 function mostrarPalavraOculta() {
-for (let i = 0; i < palavraAleatoria.length; i++) {
-    tamanhoPalavra.push('_');
+
+    for (let i = 0; i < palavraAleatoria.length; i++) {
+        tamanhoPalavra.push('_');
     }
-    // o join serve para mudar o separador entre os elementos, nesse caso ele é um espaço vazio
+
     let palavraOculta = tamanhoPalavra.join(" ");
-    console.log(palavraOculta)
+    return palavraOculta;
 }
 
-//função de perder vida
+// função perder vida
 function PerderVida(){
 
-tentativas--;
+    tentativas--;
 
     if (tentativas > 0) {
         console.log("Você errou! Restam " + tentativas + " tentativas.");
     } else {
         console.log("Você perdeu! Fim de jogo.");
     }
+
 }
 
+//função para revelar letra na palavra
+function revelarLetra(letra){
 
-// Texto inicial do jogo
+    for (let i = 0; i < palavraAleatoria.length; i++){
+
+        if (palavraAleatoria[i] === letra){
+            tamanhoPalavra[i] = letra;
+        }
+
+    }
+
+    console.log(tamanhoPalavra.join(" "));
+}
+
+// texto inicial
 console.log("Olá, você está em um Jogo da Forca, digita a palavra certa ou morra! 🪢")
 console.log(" ")
-console.log("❌ Você tem 6, a cada de letra errada você perde uma vida! ☠️")
+console.log("❌ Você tem 6 tentativas, a cada letra errada você perde uma vida! ☠️")
 console.log("____________________________ / / ______________________________________")
 console.log(" ")
 
-// iniciando jogo
 console.log("Jogo iniciado, descubra a palavra ou morra!!! ☠️")
 console.log(mostrarPalavraOculta())
 
 console.log("======================================================")
 
-let letra = readline.question("Digite uma letra: ");
+function pedirLetra() {
 
-// verificar se a letra existe na palavra
+    let letra = readline.question("Digite uma letra: ");
+    let letraFormatada = letra.trim().toLowerCase();
+    let podeUsar = false;
+
+    while (!podeUsar || letraFormatada === "") {
+
+        podeUsar = LetrasPodeUsar.includes(letraFormatada);
+
+        if (!podeUsar || letraFormatada === "") {
+            letra = readline.question("Digite uma letra válida: ");
+            letraFormatada = letra.trim().toLowerCase();
+        }
+    }
+
+    // impedir repetir letras
+    while (LetrasUsada.includes(letraFormatada)) {
+        letra = readline.question("Essa letra já foi usada, digite outra: ");
+        letraFormatada = letra.trim().toLowerCase();
+    }
+
+    LetrasUsada.push(letraFormatada);
+
+    return letraFormatada;
+}
+
+// jogo
+let letra = pedirLetra();
+
 if (!palavraAleatoria.includes(letra)) {
 
     PerderVida();
@@ -63,7 +104,6 @@ if (!palavraAleatoria.includes(letra)) {
 
     console.log("Boa! A letra existe na palavra.");
 
+    revelarLetra(letra);
+
 }
-
-
-
