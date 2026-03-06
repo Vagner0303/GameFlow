@@ -2,7 +2,7 @@
 
 # Projeto Jogo Da Forca
 Um Projeto de jogo da forca feito em "JavaScript" rodando no "Terminal"
-O jogador precisa advinhar qual é a palavra digitando letras de A a Z, cada erro reduzira a vida do jogador
+O jogador precisa advinhar qual é a palavra digitando letras de A a Z, cada erro reduzirá a vida do jogador
 
 # Tecnologias Utilizadas
 * JavaScript
@@ -15,4 +15,4 @@ O jogador precisa advinhar qual é a palavra digitando letras de A a Z, cada err
   * Se errar o jogador perde uma tentativa
   * O Jogador possui 6 vidas antes de acabar o jogo
 
-    #
+    
