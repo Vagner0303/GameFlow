@@ -94,16 +94,18 @@ function pedirLetra() {
 }
 
 // jogo
-let letra = pedirLetra();
+while (tentativas > 0 && tamanhoPalavra.includes("_")) {
+    let letra = pedirLetra();
 
-if (!palavraAleatoria.includes(letra)) {
+    if (!palavraAleatoria.includes(letra)) {
 
     PerderVida();
 
-} else {
+    } else {
 
     console.log("Boa! A letra existe na palavra.");
 
     revelarLetra(letra);
 
+    }
 }
