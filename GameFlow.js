@@ -52,9 +52,33 @@ console.log(mostrarPalavraOculta())
 
 console.log("======================================================")
 
-let letra = readline.question("Digite uma letra: ");
+function pedirLetra() {
+    let letra = readline.question("Digite uma letra: ");
+    // formatar para comparar com a array já existente
+    let letraFormatada = letra.trim().toLowerCase();
+    // iniciar uma variável
+    let podeUsar = false;
+
+    // validar se é letra e se não é um espaço vazio, repete até dar certo
+    while (!podeUsar || letraFormatada === "") {
+
+        podeUsar = LetrasPodeUsar.includes(letraFormatada); // retorna true ou false
+
+        // verifica se um deles é verdadeiro para pedir de novo
+        if (!podeUsar || letraFormatada === "") {
+            letra = readline.question("Digite uma letra válida: ");
+            letraFormatada = letra.trim().toLowerCase();
+        }
+    }
+    // letra foi usada
+    LetrasUsada.push(letraFormatada);
+    // para usar depois
+    return letraFormatada;
+}
 
 // verificar se a letra existe na palavra
+let letra = pedirLetra();
+
 if (!palavraAleatoria.includes(letra)) {
 
     PerderVida();
