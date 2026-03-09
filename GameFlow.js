@@ -25,7 +25,7 @@ function mostrarPalavraOculta() {
     return palavraOculta;
 }
 
-// função perder vida e perder jogo
+// função perder vida
 function PerderVida(){
     tentativas--;
     if (tentativas > 0) {
@@ -90,7 +90,6 @@ function pedirLetra() {
         letraFormatada = letra.trim().toLowerCase();
     }
 
-    // mostra as letras que ja usou
     LetrasUsada.push(letraFormatada);
 
     console.log("Letras usadas: " + LetrasUsada.join(", "));
