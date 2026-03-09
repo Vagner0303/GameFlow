@@ -43,5 +43,6 @@ git clone https://github.com/Vagner0303/GameFlow.git
 4. No terminal, execute o jogo com o comando:
 
 ```bash
+npm install readline-sync
 node GameFlow.js
 ```
