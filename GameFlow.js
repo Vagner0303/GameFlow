@@ -29,7 +29,7 @@ function mostrarPalavraOculta() {
 function PerderVida(){
     tentativas--;
     if (tentativas > 0) {
-        console.log("Você errou! Restam " + tentativas + " tentativas.");
+        console.log("❌Você errou! Restam " + tentativas + " tentativas.");
         console.log("=============================================");
     } else {
         console.log("Você perdeu! Fim de jogo ☠️");
@@ -69,7 +69,7 @@ console.log(mostrarPalavraOculta());
 console.log("======================================================");
 
 function pedirLetra() {
-    let letra = readline.question("Digite uma letra: ");
+    let letra = readline.question("➡️ Digite uma letra: ");
     console.log("======================================================");
     let letraFormatada = letra.trim().toLowerCase();
     let podeUsar = false;
@@ -77,7 +77,7 @@ function pedirLetra() {
     while (!podeUsar || letraFormatada === "") {
         podeUsar = LetrasPodeUsar.includes(letraFormatada);
         if (!podeUsar || letraFormatada === "") {
-            letra = readline.question("Digite uma letra valida: ");
+            letra = readline.question("✖️Digite uma letra valida: ");
             console.log("======================================================");
             letraFormatada = letra.trim().toLowerCase();
         }
@@ -85,14 +85,14 @@ function pedirLetra() {
 
     // impedir repetir letras
     while (LetrasUsada.includes(letraFormatada)) {
-        letra = readline.question("Essa letra ja foi usada, digite outra: ");
+        letra = readline.question("💢Essa letra ja foi usada, digite outra: ");
         console.log("======================================================");
         letraFormatada = letra.trim().toLowerCase();
     }
 
     LetrasUsada.push(letraFormatada);
 
-    console.log("Letras usadas: " + LetrasUsada.join(", "));
+    console.log("🍃 Letras usadas: " + LetrasUsada.join(", "));
     console.log("=============================================");
 
     return letraFormatada;
@@ -105,7 +105,7 @@ while (tentativas > 0 && tamanhoPalavra.includes("_")) {
     if (!palavraAleatoria.includes(letra)) {
         PerderVida();
     } else {
-        console.log("Boa! A letra existe na palavra.");
+        console.log("✅ Boa! A letra existe na palavra.");
         console.log("======================================================");
         revelarLetra(letra);
         GanharJogo();
