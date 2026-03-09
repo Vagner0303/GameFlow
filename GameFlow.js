@@ -110,4 +110,7 @@ if (!palavraAleatoria.includes(letra)) {
 
     revelarLetra(letra);
 
-}
+} 
+ 
+
+ 
