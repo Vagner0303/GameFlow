@@ -116,3 +116,5 @@ if (!palavraAleatoria.includes(letra)) {
  
 
   
+
+ 
